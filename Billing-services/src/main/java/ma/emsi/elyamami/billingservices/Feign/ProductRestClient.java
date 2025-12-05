@@ -1,15 +1,15 @@
 package ma.emsi.elyamami.billingservices.Feign;
 
-import ma.emsi.elyamami.inventoryservice.entities.Product;
+import ma.emsi.elyamami.billingservices.model.Product;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.data.web.PagedModel;
+import org.springframework.hateoas.PagedModel;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(name = "inventory-service")
 public interface ProductRestClient {
-    @GetMapping("/api/products/{id}")
-    Product getProductById(@PathVariable String id);
-    @GetMapping("/api/products")
+    @GetMapping("/products/{id}")
+    ma.emsi.elyamami.inventoryservice.entities.Product getProductById(@PathVariable String id);
+    @GetMapping("/products")
     PagedModel<Product> getAllProducts();
 }

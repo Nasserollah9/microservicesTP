@@ -4,10 +4,10 @@ import ma.emsi.elyamami.billingservices.Feign.CustomerRestClient;
 import ma.emsi.elyamami.billingservices.Feign.ProductRestClient;
 import ma.emsi.elyamami.billingservices.entities.Bill;
 import ma.emsi.elyamami.billingservices.entities.ProductItem;
+import ma.emsi.elyamami.billingservices.model.Customer;
+import ma.emsi.elyamami.billingservices.model.Product;
 import ma.emsi.elyamami.billingservices.repositories.BillRepository;
 import ma.emsi.elyamami.billingservices.repositories.ProductItemRepository;
-import ma.emsi.elyamami.customerservice.entities.Customer;
-import ma.emsi.elyamami.inventoryservice.entities.Product;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,7 +16,6 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 import java.util.Random;
 
 @SpringBootApplication
@@ -27,7 +26,7 @@ public class BillingServiceApplication {
         SpringApplication.run(BillingServiceApplication.class, args);
     }
     @Bean
-    CommandLineRunner commandLineRunner(BillRepository billRepository,
+    CommandLineRunner commandLineRunner(BillRepository  billRepository,
                                         ProductItemRepository productItemRepository,
                                         CustomerRestClient customerRestClient,
                                         ProductRestClient productRestClient){
