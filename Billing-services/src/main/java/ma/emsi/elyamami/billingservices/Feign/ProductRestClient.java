@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(name = "inventory-service")
 public interface ProductRestClient {
-    @GetMapping("/products/{id}")
+    @GetMapping("/api/products/{id}")
     ma.emsi.elyamami.inventoryservice.entities.Product getProductById(@PathVariable String id);
-    @GetMapping("/products")
+    @GetMapping("/api/products")
     PagedModel<Product> getAllProducts();
 }
